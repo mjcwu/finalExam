@@ -29,5 +29,32 @@ module BiddrApi
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+    config.generators do |g|
+      # Don't create helpers files when using
+      # the generator
+      g.helper = false
+      # Don't create assets files when using the
+      # generator
+      g.assets = false
+  
+      # This tells Rails' ActiveJob to use the gem
+      # "delayed_job" to manage our job queue.
+    end
+  
+    config.middleware.insert_before(0, Rack::Cors) do
+      allow do
+        origins "localhost:3030", "localhost:3001"
+        # "origins" specifies which host are allowed to
+        # make CORS request to our Rails server
+        resource(
+          "/api/*",
+          headers: :any,
+          credentials: true,
+          # Allows cookies to be sent accross origins with AJAX
+          # (i.e. fetch or XMLHTTPRequest)
+          methods: [:get, :post, :delete, :patch, :put, :options]
+        )
+      end
+    end
   end
 end
