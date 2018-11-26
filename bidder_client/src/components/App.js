@@ -7,6 +7,8 @@ import AuctionIndexPage from "./AuctionIndexPage";
 import AuctionShowPage from "./AuctionShowPage";
 import WelcomePage from "./Welcome";
 
+import { User, Session } from "../requests";
+
 const App = () => (
   <BrowserRouter>
     <div className="App">
