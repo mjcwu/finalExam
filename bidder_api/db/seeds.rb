@@ -20,12 +20,35 @@ super_user = User.create(
   password: PASSWORD
 )
 
-q = Auction.create(
+10.times do
+  first_name = Faker::Name.first_name
+  last_name = Faker::Name.last_name
+
+  u = User.create(
+    first_name: first_name,
+    last_name: last_name,
+    email: "#{first_name.downcase}.#{last_name.downcase}@example.com",
+    password: PASSWORD
+  )
+end
+
+users = User.all
+
+a = Auction.create(
     title: "Vancouver City Hall",
     description: "Vancouver city hall is on sale now!",
-    price: rand(1000),
+    price: 1000,
     end_date: "2018-12-31",
     user: super_user
   )
+
+  if a.valid?
+    rand(0..15).times do
+      a.bids << Bid.new(
+        bid: rand(300),
+        user: users.sample
+      )
+    end
+  end
 
   puts ("Generated")

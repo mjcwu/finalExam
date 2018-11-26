@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import AuctionDetails from "./AuctionDetails";
-// import BidList from "./BidList";
+import BidList from "./BidList";
 import { Auction } from "../requests"
 
 class AuctionShowPage extends Component {
@@ -13,7 +13,7 @@ class AuctionShowPage extends Component {
       auction: null
     };
     this.deleteAuction = this.deleteAuction.bind(this);
-    this.deleteBid = this.deleteBid.bind(this);
+    // this.deleteBid = this.deleteBid.bind(this);
   }
 
   deleteAuction() {
@@ -22,15 +22,15 @@ class AuctionShowPage extends Component {
     });
   }
 
-  deleteBid(bidId) {
-    const {auction, auction:{bids}} = this.state;
-    this.setState({
-      auction: {
-        ...auction,
-        bids: bids.filter(a => a.id !== bidId)
-      }
-    });
-  }
+  // deleteBid(bidId) {
+  //   const {auction, auction:{bids}} = this.state;
+  //   this.setState({
+  //     auction: {
+  //       ...auction,
+  //       bids: bids.filter(a => a.id !== bidId)
+  //     }
+  //   });
+  // }
 
   componentDidMount() {
     const id = this.props.match.params.id;
@@ -71,12 +71,11 @@ class AuctionShowPage extends Component {
             color: "darkgreen"
           }}
         >
-          Bids
+          Previous Bids
         </h2>
-        {/* <BidList
-          onBidDeleteClick={this.deleteBid}
+        <BidList
           bids={this.state.auction.bids}
-        /> */}
+        />
       </main>
     );
   }

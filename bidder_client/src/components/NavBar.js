@@ -7,9 +7,11 @@ const NavBar = props => {
       <NavLink exact to="/">
         Welcome
       </NavLink>
+      |
       <NavLink exact to="/auctions">
         Auctions List
       </NavLink>
+      |
       <NavLink exact to="/auctions/new">
         New Auction
       </NavLink>
