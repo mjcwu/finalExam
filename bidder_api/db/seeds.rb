@@ -5,3 +5,20 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+Bid.delete_all
+Auction.delete_all
+User.delete_all
+
+
+# PASSWORD = "supersecret"
+# NUM_OF_QUESTIONS = 100
+
+# super_user = User.create(
+#   first_name: "Jon",
+#   last_name: "Snow",
+#   email: "js@winterfell.gov",
+#   password: PASSWORD,
+#   admin: true
+# )
+
