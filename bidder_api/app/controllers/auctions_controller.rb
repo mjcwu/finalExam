@@ -14,7 +14,7 @@ class AuctionController < ApplicationController
   end
 
   def index
-    @auction = Auction.all.order(created_at: :desc)
+    @auctions = Auction.all.order(created_at: :desc)
     
     respond_to do |format|
       format.html { render } # this will render `views/auction/index.html.erb`
