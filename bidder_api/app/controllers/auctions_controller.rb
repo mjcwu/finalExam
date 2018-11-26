@@ -1,10 +1,12 @@
 class AuctionController < ApplicationController
-
+  before_action :authenticate_user!, only: [:create, :destroy]
   before_action :find_question, only: [:show, :destroy]
+  before_action :authorize_user!, only: [:create, :destroy]
+
 
   def create
     @auction = Auction.new auction_params
-    # @auction.user = current_user
+    @auction.user = current_user
 
     if @auction.save
       redirect_to auction_path(@auction)
@@ -42,5 +44,12 @@ class AuctionController < ApplicationController
 
   def find_auction
     @auction = Auctioin.find params[:id]
+  end
+
+  def authorize_user!
+    unless can? :crud, @auction
+      flash[:danger] = "Access Denied"
+      redirect_to home_path
+    end
   end
 end
