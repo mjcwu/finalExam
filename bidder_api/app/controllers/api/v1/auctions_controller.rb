@@ -1,5 +1,5 @@
-class Api::V1::QuestionsController < Api::ApplicationController
-  # before_action :authenticate_user!, except: [ :index, :show ]
+class Api::V1::AuctionsController < Api::ApplicationController
+  before_action :authenticate_user!, except: [ :index, :show ]
 
   def index
     auctions = Auction.order created_at: :desc
@@ -33,6 +33,6 @@ class Api::V1::QuestionsController < Api::ApplicationController
   end
 
   def auction_params
-    params.require(:auction).permit(:title, :body)
+    params.require(:auction).permit(:title, :description, :price, :end_date)
   end
 end

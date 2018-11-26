@@ -11,14 +11,21 @@ Auction.delete_all
 User.delete_all
 
 
-# PASSWORD = "supersecret"
-# NUM_OF_QUESTIONS = 100
+PASSWORD = "supersecret"
 
-# super_user = User.create(
-#   first_name: "Jon",
-#   last_name: "Snow",
-#   email: "js@winterfell.gov",
-#   password: PASSWORD,
-#   admin: true
-# )
+super_user = User.create(
+  first_name: "Jon",
+  last_name: "Snow",
+  email: "js@winterfell.gov",
+  password: PASSWORD
+)
 
+q = Auction.create(
+    title: "Vancouver City Hall",
+    description: "Vancouver city hall is on sale now!",
+    price: rand(1000),
+    end_date: "2018-12-31",
+    user: super_user
+  )
+
+  puts ("Generated")
