@@ -3,12 +3,12 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 import NavBar from "./NavBar";
 import AuctionIndexPage from "./AuctionIndexPage";
-// import AuctionNewPage from "./AuctionNewPage";
+import AuctionNewPage from "./AuctionNewPage";
 import AuctionShowPage from "./AuctionShowPage";
 import WelcomePage from "./Welcome";
 
 import SignInPage from "./SignInPage";
-// import AuthRoute from "./AuthRoute";
+import AuthRoute from "./AuthRoute";
 import { User, Session } from "../requests";
 
 
@@ -69,12 +69,12 @@ class App extends Component {
                 <SignInPage {...routeProps} onSignIn={this.getUser} />
               )}
             />
-            {/* <AuthRoute
+            <AuthRoute
               isAuth={currentUser}
-              path="/questions/new"
+              path="/auctions/new"
               exact
-              component={QuestionNewPage}
-            /> */}
+              component={AuctionNewPage}
+            />
             <Route
               path="/auctions/:id"
               exact={true}

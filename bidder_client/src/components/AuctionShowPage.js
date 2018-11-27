@@ -22,16 +22,6 @@ class AuctionShowPage extends Component {
     });
   }
 
-  // deleteBid(bidId) {
-  //   const {auction, auction:{bids}} = this.state;
-  //   this.setState({
-  //     auction: {
-  //       ...auction,
-  //       bids: bids.filter(a => a.id !== bidId)
-  //     }
-  //   });
-  // }
-
   componentDidMount() {
     const id = this.props.match.params.id;
     Auction.one(id).then(auction => {

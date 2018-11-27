@@ -28,7 +28,10 @@ const NavBar = props => {
       |
       {currentUser ? (
         <>
-          <span> {currentUser.first_name}</span>
+          <span>
+          Aloha, {currentUser.first_name} 🐲
+          |
+          </span>
           <a href="#not-used" onClick={handleSignOutClick}>
             Sign Out
           </a>
