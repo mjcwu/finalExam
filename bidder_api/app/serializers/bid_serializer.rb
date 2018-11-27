@@ -4,4 +4,7 @@ class BidSerializer < ActiveModel::Serializer
   belongs_to :user, key: :bidder
   belongs_to :auction
 
+  def created_at
+    object.created_at.strftime('%Y-%B-%d')
+  end
 end

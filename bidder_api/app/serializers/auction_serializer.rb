@@ -5,7 +5,6 @@ class AuctionSerializer < ActiveModel::Serializer
   has_many :bids
 
   def created_at
-    # `object` refers to the object (in this case Question) being serialized
     object.created_at.strftime('%Y-%B-%d')
   end
 end
