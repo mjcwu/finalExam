@@ -62,9 +62,13 @@ class AuctionIndexPage extends Component {
               </small>{" "}
               <Link to={`/auctions/${auction.id}`}>{auction.title}</Link>
               <br />
+              
+              
               <button onClick={() => this.deleteAuction(auction.id)}>
                 Delete
               </button>
+
+
             </li>
           ))}
         </ul>

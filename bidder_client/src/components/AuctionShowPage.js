@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import AuctionDetails from "./AuctionDetails";
 import BidList from "./BidList";
+import BidForm from "./BidForm";
 import { Auction } from "../requests"
 
 class AuctionShowPage extends Component {
@@ -13,11 +14,20 @@ class AuctionShowPage extends Component {
       auction: null
     };
     this.deleteAuction = this.deleteAuction.bind(this);
+    this.createBid = this.createBid.bind(this);
   }
 
   deleteAuction() {
     this.setState({
       auction: null
+    });
+  }
+
+  createBid(params) {
+    Auction.update(params).then(auction => {
+      if (!auction.errors) {
+        this.props.history.push(`/auctions/${auction.auction.id}`);
+      }
     });
   }
 
@@ -53,10 +63,11 @@ class AuctionShowPage extends Component {
         <AuctionDetails
           {...this.state.auction}
         />
-        <button onClick={this.deleteAuction}>Delete</button>
+        {/* <button onClick={this.deleteAuction}>Delete</button> */}
 
-
-
+        <BidForm
+          onSubmit={this.createBid}
+        />
 
         <h2
           style={{

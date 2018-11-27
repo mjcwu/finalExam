@@ -31,7 +31,17 @@ export const Auction = {
       },
       body: JSON.stringify(id)
     }).then(res => res.json());
-  }
+  },
+  update(params) {
+    return fetch(`${BASE_URL}/auctions/${params.id}`, {
+      method: "PUT",
+      credentials: "include",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(params)
+    }).then(res => res.json());
+  },
 };
 
 export const Session = {
@@ -60,3 +70,17 @@ export const User = {
     }).then(res => res.json());
   }
 };
+
+
+// export const Bid = {
+//   create(params) {
+//     return fetch(`${BASE_URL}/auctions/${params.id}/bids`, {
+//       method: "POST",
+//       credentials: "include",
+//       headers: {
+//         "Content-Type": "application/json"
+//       },
+//       body: JSON.stringify(params)
+//     }).then(res => res.json());
+//   },
+// };
