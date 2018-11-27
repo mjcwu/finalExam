@@ -11,15 +11,14 @@ class AuctionIndexPage extends Component {
       loading: true,
       auctions: []
     };
-    this.deleteAuction = this.deleteAuction.bind(this);
-    // this.createAuction = this.createAuction.bind(this);
+    // this.deleteAuction = this.deleteAuction.bind(this);
   }
 
   deleteAuction(auctionId) {
-    console.log("Delete button clicked!");
-
-    this.setState({
-      auctions: this.state.auctions.filter(q => q.id !== auctionId)
+    Auction.delete(auctionId).then(auction => {
+      if (!auction.errors) {
+        this.props.history.push(`/auction`);
+      }
     });
   }
 

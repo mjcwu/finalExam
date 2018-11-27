@@ -13,7 +13,6 @@ class AuctionShowPage extends Component {
       auction: null
     };
     this.deleteAuction = this.deleteAuction.bind(this);
-    // this.deleteBid = this.deleteBid.bind(this);
   }
 
   deleteAuction() {
@@ -55,6 +54,10 @@ class AuctionShowPage extends Component {
           {...this.state.auction}
         />
         <button onClick={this.deleteAuction}>Delete</button>
+
+
+
+
         <h2
           style={{
             fontWeight: "300",
